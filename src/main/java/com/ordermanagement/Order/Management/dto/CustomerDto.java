@@ -1,14 +1,20 @@
 package com.ordermanagement.Order.Management.dto;
 
+import javax.validation.constraints.NotNull;
+
 public record CustomerDto(
         Long id,
 
-        Long registrationNumber,
+        @NotNull
+        Integer registrationNumber,
 
+        @NotNull
         String fullName,
 
+        @NotNull
         String email,
 
-        Long telephone
+        @NotNull
+        String telephone
 ) {
 }

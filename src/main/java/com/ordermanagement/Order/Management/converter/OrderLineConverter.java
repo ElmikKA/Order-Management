@@ -15,7 +15,8 @@ public class OrderLineConverter implements Converter<OrderLine, OrderLineDto> {
 
     @Override
     public OrderLineDto fromEntityToDto(OrderLine entity) {
-        var productDto = entity.getProduct().stream()
+        var productDto = entity.getProduct()
+                .stream()
                 .map(productConverter::fromEntityToDto)
                 .toList();
 

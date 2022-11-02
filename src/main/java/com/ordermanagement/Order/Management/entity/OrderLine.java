@@ -1,6 +1,7 @@
 package com.ordermanagement.Order.Management.entity;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,46 +11,20 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "ORDERLINES")
 public class OrderLine {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Product> product;
+    @OneToMany( cascade = CascadeType.MERGE)
+    List<Product> product;
 
 
-    private Long quantity;
+    Long quantity;
 
-    public OrderLine(Long id, List<Product> product, Long quantity) {
-        this.id = id;
-        this.product = product;
-        this.quantity = quantity;
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Product> getProduct() {
-        return product;
-    }
-
-    public void setProduct(List<Product> product) {
-        this.product = product;
-    }
-
-    public Long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
-    }
 }

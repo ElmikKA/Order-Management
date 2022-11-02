@@ -4,7 +4,7 @@ import com.ordermanagement.Order.Management.dto.CustomerDto;
 import com.ordermanagement.Order.Management.entity.Customer;
 import org.springframework.stereotype.Component;
 
-import javax.sql.ConnectionEventListener;
+
 
 @Component
 public class CustomerConverter implements Converter<Customer, CustomerDto> {
